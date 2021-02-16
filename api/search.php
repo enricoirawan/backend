@@ -10,6 +10,8 @@
       ":keyword" => '%' . $keyword . '%',
     ]);
     $count = $stmt->rowCount();
+    
+    $response = [];
 
     if($count < 0){
       $response['error'] = "Movie not found, try another request";
