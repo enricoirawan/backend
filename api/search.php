@@ -1,5 +1,6 @@
 <?php 
   require_once('../include/db.php');
+  header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
 
   if(isset($_GET['keyword'])){
     $keyword = $_GET['keyword'];
