@@ -61,6 +61,7 @@
           <td><img class="img-thumbnail" style="width: 150px; height: 150px;" src="images/<?= $movie_img ?>" alt="<?= $movie_img ?>"></td>
           <td><?= $movie_category ?></td>
           <td>
+            <a href="./functions/comments.php?id=<?= $movie_id ?>" type="button" class="btn btn-sm btn-success">Comments</a>
             <a href="./functions/get_data_by_id.php?id=<?= $movie_id ?>" type="button" class="btn btn-sm btn-warning">Edit</a>
             <a href="./functions/delete.php?id=<?= $movie_id ?>" type="button" class="btn btn-sm btn-danger">Delete</a>
           </td>
