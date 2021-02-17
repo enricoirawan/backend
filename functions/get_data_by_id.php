@@ -2,6 +2,10 @@
 session_start();
 require_once('../include/db.php');
 
+if (!isset($_SESSION['username'])) {
+  header("location:../index.php");
+} 
+
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $sql = "SELECT * FROM movies WHERE movie_id = :id";
