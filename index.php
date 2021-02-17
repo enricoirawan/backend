@@ -5,13 +5,12 @@ if (isset($_POST['submit'])) {
   $password = $_POST['password'];
   $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([
+  $result = $stmt->execute([
     ":username" => $username,
     ":password" => $password,
   ]);
 
-  $count = $stmt->rowCount();
-  if ($count == 1) {
+  if ($result) {
     // mengambil data user admin
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     $username = $user["username"];
@@ -19,7 +18,7 @@ if (isset($_POST['submit'])) {
     // set session
     $_SESSION['username'] = $username;
     $_SESSION['login'] = true;
-    header('Refresh:1;url=home.php');
+    header('location:home.php');
   } else {
     $error = "Username dan Password salah";
   }

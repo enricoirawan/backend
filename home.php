@@ -1,9 +1,4 @@
 <?php session_start() ?>
-<?php
-  if(!isset($_SESSION['username'])){
-    header("location:index.php");
-  }  
-?>
 <?php require_once('./include/header.php') ?>
 
 <!-- START:Navbar -->
