@@ -2,15 +2,15 @@
   require_once('../include/db.php');
   header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
 
-  if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  $id = $_POST['id'];
-  $username = $_POST['username'];
-  $comment_text = $_POST['comment_text'];
+  if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $username = $_GET['username'];
+  $comment_text = $_GET['comment_text'];
 
   if(!$username){
     $username = "Anon";
   }else{
-    $username = $_POST['username'];
+    $username = $_GET['username'];
   }
 
   $sql = "INSERT INTO comments VALUES ('', :movie_id, :username, :text)";
